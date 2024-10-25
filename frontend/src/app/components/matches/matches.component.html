@@ -1,0 +1,33 @@
+<div class="container mt-5" style="width: 100%;">
+    <h2>Upcoming Matches</h2>
+    <button *ngIf="canEdit" class="btn btn-primary p-3" (click)="addMatch()">Add Match</button>
+</div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="slider1 col-md-10 d-flex flex-wrap">
+            <div *ngFor="let match of allMatches" class="col-md-5 card m-2 border-1">
+                <div class="header">
+                    <div class="d-flex justify-content-between">
+                        <h6><img [src]="match.flag1" alt="{{ match.team1 }}" style="margin-right: 8px;">{{ match.team1 }}</h6>
+                        <h6><img [src]="match.flag2" alt="{{ match.team2 }}" style="margin-right: 8px;">{{ match.team2 }}</h6>
+                    </div>
+                    <p class="mb-0 mt-2 text-center"> {{ match.stadium }}, {{ match.place }}</p>
+                </div>
+                <hr class="m-0 mt-2 mb-2">
+                <div class="footer d-flex justify-content-between">
+                    <p>{{  match.date | date:'MMMM d, y' }}</p>
+                    <p> Time: {{ match.time }}</p>
+                </div>
+                <div class="buttton-sec" *ngIf="canEdit">
+                    <button color="primary" mat-button (click)="onEdit(match._id)" >
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button color="warn" mat- mat-button (click)="onDelete(match._id)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

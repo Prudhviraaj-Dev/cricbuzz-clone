@@ -1,0 +1,28 @@
+img{
+    height: 35px;
+    width: 50px;
+}
+h2{
+    color: black;
+    margin-top: 20px;
+}
+.card{
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 6px solid green;
+}
+.card ul {
+    list-style-type: none;
+    padding: 0;
+}
+.card ul li {
+    margin: 5px 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+}

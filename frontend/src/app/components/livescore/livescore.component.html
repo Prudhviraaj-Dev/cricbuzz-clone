@@ -1,0 +1,43 @@
+<div class="container">
+    <h2 class="name">Live Cricket Score</h2>
+    <button *ngIf="canEdit" class="btn btn-primary p-3" (click)="addLivescore()">Add Match</button>
+
+    <div class="card-container d-flex flex-column flex-md-row flex-wrap">
+        @for (score of livescore; track $index) {
+        <div class="col-md-5 m-2 mb-4">
+
+            <div class="card mt-2 p-4 shadow-lg">
+                <header class="card-header">
+                    <h5 class="card-title">{{score.match}}</h5>
+                    <p class="card-venue mb-2">{{score.venue}}</p>
+                </header>
+                <div class="card-body m-2 px-2">
+                    <div class="score-info d-flex justify-content-between">
+                        <p class="team-name font">{{score.team1}}</p>
+                        <p class="team-score font">{{score.score1}}</p>
+                    </div>
+                    <div class="score-info d-flex justify-content-between">
+                        <p class="team-name font">{{score.team2}}</p>
+                        <p class="team-score font">{{score.score2}}</p>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p class="toss" style="color: red;">Toss: {{score.toss}}</p>
+                    <p class="result" style="color: green;">{{score.result}}</p>
+                </footer>
+                <div class="buttton-sec" *ngIf="canEdit">
+                    <button color="primary" mat-button (click)="editLiveScore(score._id)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button color="warn" mat- mat-button (click)="onDelete(score._id)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+
+

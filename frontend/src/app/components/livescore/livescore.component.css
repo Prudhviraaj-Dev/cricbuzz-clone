@@ -1,0 +1,8 @@
+h2{
+    color: black;
+    margin-top: 20px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,21 @@
+.popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .close-button {
+    margin-right: 16px; /* Space between button and title */
+  }
+  
+  .d-flex {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+  }
+  
+  .flex-grow-1 {
+    flex-grow: 1; /* Allow title to take remaining space */
+  }
+  
+  

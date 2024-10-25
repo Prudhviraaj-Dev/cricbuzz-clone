@@ -1,0 +1,27 @@
+.win {
+    color: green;
+    font-weight: bold;
+}
+
+.loss {
+    color: red; 
+    font-weight: bold;
+}
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px; 
+    border-radius: 50%;
+    background-color: white; 
+    text-align: center;
+    line-height: 30px; 
+    margin-right: 5px; 
+    border: 2px solid; 
+}
+
+.custom-header {
+    background-color: #f0f0f0;
+    padding: 1rem; 
+    border-radius: 5px;
+}
+

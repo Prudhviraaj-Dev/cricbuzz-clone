@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <div class="custom-header d-flex justify-content-between align-items-center p-3 mt-6">
+        <div class="column">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Select Season</mat-label>
+                <mat-select [(ngModel)]="selectedYear" required>
+                    <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button class="btn btn-primary" (click)="fetchData()">Search</button>
+        </div>
+        <h1 class="m-0">IPL Points Table {{selectedYear}}</h1>
+    </div>
+    <div class="mat-elevation-z8" *ngIf="selectedYear">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="S.No">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="team">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>TEAM</th>
+                <td mat-cell *matCellDef="let row">{{ row.team }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="P">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>P</th>
+                <td mat-cell *matCellDef="let row">{{ row.P }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="W">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>W</th>
+                <td mat-cell *matCellDef="let row">{{ row.W }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="L">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>L</th>
+                <td mat-cell *matCellDef="let row">{{ row.L }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="NR">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>NR</th>
+                <td mat-cell *matCellDef="let row">{{ row.NR }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="NRR">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>NRR</th>
+                <td mat-cell *matCellDef="let row">{{ row.NRR }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="PTS">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>PTS</th>
+                <td mat-cell *matCellDef="let row">{{ row.PTS }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Recent Form">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Recent Form</th>
+                <td mat-cell *matCellDef="let row">
+                    <span class="circle" *ngFor="let form of row.recentForm.split(', '); let i = index"
+                        [ngClass]="{'win': form === 'W', 'loss': form === 'L'}">
+                        {{ form }}
+                        <span *ngIf="i < row.recentForm.length - 1"> </span> 
+                    </span>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </div>
+</div>

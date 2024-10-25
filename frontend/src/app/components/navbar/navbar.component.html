@@ -1,0 +1,27 @@
+<nav>
+    <img src="https://static.cricbuzz.com/images/cb_logo.svg" alt="image not found">
+    <ul>
+        <li><a routerLink="livescore" routerLinkActive="active highlight">Live Score</a></li>
+        <li><a routerLink="matches" routerLinkActive="active highlight">Matches</a></li>
+        <li><a routerLink="pointstable" routerLinkActive="active highlight">Point Table</a></li>
+        <li><a routerLink="players" routerLinkActive="active highlight">Players</a></li>
+        <li><button routerLink="login" routerLinkActive="active highlight" class="btn btn-danger p-1 mb-2 logout"  *ngIf="!isLoggedIn">LogIn</button></li>
+        <li><button (click)=" logout()"  routerLinkActive="active highlight" class="btn btn-danger p-1 mb-2 logout "  *ngIf="isLoggedIn">LogOut</button></li>
+    </ul>
+</nav>
+<!-- <footer>
+    <div class="row">
+        <p>© 2024 Prudhvi. All rights reserved.</p>
+    </div>
+    <div class="row">
+        <p>
+            <a href="/about-us">About Us</a> |
+            <a href="/contact">Contact</a> |
+            <a href="/support">Support</a>
+        </p>
+    </div>
+</footer> -->
+
+
+
+

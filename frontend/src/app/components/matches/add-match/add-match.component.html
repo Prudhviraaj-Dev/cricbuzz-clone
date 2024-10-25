@@ -1,0 +1,82 @@
+<div class="container">
+  <form [formGroup]="matchForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex align-items-center">
+      <h2 mat-dialog-title class="flex-grow-1">Add Match</h2>
+      <button mat-icon-button (click)="close()" class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Team Name</mat-label>
+            <input matInput formControlName="team1" required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Flag URL</mat-label>
+            <input matInput formControlName="flag1" required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Team Name</mat-label>
+            <input matInput formControlName="team2" required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Flag URL</mat-label>
+            <input matInput formControlName="flag2" required />
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Stadium</mat-label>
+            <input matInput formControlName="stadium" required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Place</mat-label>
+            <input matInput formControlName="place" required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Time</mat-label>
+            <input matInput formControlName="time" type="time" required />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="close()">Close</button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="matchForm.invalid"
+      >
+        {{ isEditMode ? "Update Match" : "Add Match" }}
+      </button>
+    </div>
+  </form>
+</div>
